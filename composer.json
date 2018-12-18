@@ -1,0 +1,12 @@
+{
+    "name": "danielsalin/04-todo-app-daniel-salin",
+    "authors": [
+        {
+            "name": "daniel-salin",
+            "email": "daniel.salin@chasacademy.se"
+        }
+    ],
+     "autoload": {
+        "psr-4": { "Todo\\": "src/" }
+    }
+}
