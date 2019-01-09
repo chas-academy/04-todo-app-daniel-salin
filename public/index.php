@@ -1,12 +1,12 @@
-<?php 
+<?php
 
-require_once __DIR__ . "/../vendor/autoload.php";
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-use Todo\Domain\Tasks;
+$root = __DIR__ . '/..';
 
-$test = new Tasks("initiated");
+require $root . '/vendor/autoload.php';
 
-echo $test->getTask();
-echo "<br>";
-echo $test->setTask("new task");
-echo $test->getTask();
+Router::load($root . '/src/routes.php')->direct(getUri(), getMethod());
+
+?>

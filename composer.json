@@ -1,12 +1,24 @@
 {
-    "name": "danielsalin/04-todo-app-daniel-salin",
-    "authors": [
-        {
-            "name": "daniel-salin",
-            "email": "daniel.salin@chasacademy.se"
-        }
-    ],
-     "autoload": {
-        "psr-4": { "Todo\\": "src/" }
+  "name": "chasacademy/todo",
+  "type": "project",
+  "description": "Todo MVC in php",
+  "keywords": [],
+  "homepage": "https://github.com/chasacademy/04-todo-app",
+  "license": "None",
+  "authors": [{
+      "name": "Axel Olsson",
+      "homepage": "https://www.chasacademy.se",
+      "role": "Developer"
+  }],
+  "support": {
+      "issues": "https://github.com/chasacademy/04-todo-app/issues",
+      "source": "https://github.com/chasacademy/04-todo-app"
+  },
+  "autoload": {
+      "classmap": ["src/"],
+      "files": ["config/credentials.php", "config/constants.php", "config/utility.php"]
+  },
+  "require": {
+      "php": ">=7.0"
     }
 }
