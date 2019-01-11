@@ -14,9 +14,9 @@ class TodoItem extends Model
             return $result;
         }
         
-        public static function updateTodo($todoId, $title, $completed = null)
+        public static function updateTodo($todoId, $title, $isComplete = null)
         {
-            $query = "UPDATE " . static::TABLENAME . " title SET title = '$title' WHERE id ='$todoId';";
+            $query = "UPDATE " . static::TABLENAME . " title SET title = '$title', completed = '$isComplete' WHERE id ='$todoId';";
             self::$db->query($query);
             $result = self::$db->execute();
             return $result;
