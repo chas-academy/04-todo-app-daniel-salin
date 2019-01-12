@@ -3,6 +3,9 @@
   <form class="view" method="POST" action="/todos/clear-completed">
     <button class="clear-completed" type=submit>Clear completed</button>
   </form>   
+  <form class="view" method="POST" action="/todos/toggle-all">
+    <button class="clear-completed" type=submit>Toggle all as complete</button>
+  </form>   
 </footer>
 
 </main>
