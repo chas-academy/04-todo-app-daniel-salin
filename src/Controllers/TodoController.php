@@ -56,7 +56,8 @@ class TodoController extends Controller {
        */
       public function toggle()
       {
-          $result = TodoItem::toggleTodos();
+       $completed = $_POST['toggle']; 
+          $result = TodoItem::toggleTodos($completed);
           if ($result) {
               $this->redirect('/');
           }

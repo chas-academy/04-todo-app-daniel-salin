@@ -32,7 +32,7 @@ class TodoItem extends Model
     
     public static function toggleTodos($completed)
     {
-        $query = "UPDATE " . static::TABLENAME . " completed SET completed = 'true' WHERE completed ='false';";
+        $query = "UPDATE " . static::TABLENAME . " SET completed = '$completed';";
         self::$db->query($query);
             $result = self::$db->execute();
             return $result;
