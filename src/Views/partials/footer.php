@@ -4,7 +4,7 @@
 })) ?>
     item<?= "".count($todos) !== 1 ? "s" : "" ?>
     left</span>
-  
+
   <form class="view" method="POST" action="/todos/complete">
     <button class="clear-completed" type=submit>Completed</button>
   </form>
@@ -20,6 +20,9 @@
 </footer>
 
 </main>
+<div class="small-container">
+  <p><a href="display">Login</a> to create and save your own todo-lists!</p>
+</div>
 
 <footer class="site-footer">
   <div class="small-container">

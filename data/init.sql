@@ -19,3 +19,13 @@ VALUES
   ('create a todo', now(), 'false'),
   ('do laundry', now(), 'false'),
   ('finish todo app', now(), 'false');
+
+USE 'todo-app-db';
+
+CREATE TABLE 'users' (
+'id' INT PRIMARY KEY AUTO_INCREMENT,
+'username' VARCHAR(255) NOT NULL,
+password VARCHAR(255) NOT NULL
+);
+
+INSERT INTO 'users' ('username', 'password') VALUES ('admin', 'password');

@@ -25,12 +25,21 @@ abstract class Controller
 
         if (file_exists($path)) {
             ob_start();
+            
+            
+            if ($path === '/var/www/public/../src/Views/login.view.php') {
+                $partialHeadPath = "/../src/Views/partials/headLogin.php";
+                $partialFooterPath = "/../src/Views/partials/footerLogin.php";
+            } else {
+                $partialHeadPath = "/../src/Views/partials/head.php";
+                $partialFooterPath = "/../src/Views/partials/footer.php";
+            }
 
-            include_once $_SERVER['DOCUMENT_ROOT'] . "/../src/Views/partials/head.php";
+            include_once $_SERVER['DOCUMENT_ROOT'] . $partialHeadPath;
 
             include_once $path;
 
-            include_once $_SERVER['DOCUMENT_ROOT'] . "/../src/Views/partials/footer.php";
+            include_once $_SERVER['DOCUMENT_ROOT'] . $partialFooterPath;
 
             $renderedView = ob_get_contents();
 
