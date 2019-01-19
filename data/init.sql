@@ -29,3 +29,14 @@ password VARCHAR(255) NOT NULL
 );
 
 INSERT INTO 'users' ('username', 'password') VALUES ('admin', 'password');
+
+CREATE TABLE 'user_todos' (
+ 'id' int(11) unsigned NOT NULL AUTO_INCREMENT,
+ 'title' varchar(100) NOT NULL DEFAULT '',
+ 'user_id' int NOT NULL,
+ 'created' datetime NOT NULL,
+ 'completed' enum('false', 'true') NOT NULL DEFAULT 'false',
+  PRIMARY KEY ('id'),
+FOREIGN KEY ('user_id')
+    REFERENCES 'users'('id')
+);

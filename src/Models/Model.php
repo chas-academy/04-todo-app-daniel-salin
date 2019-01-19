@@ -68,6 +68,29 @@ abstract class Model
             return $err->getMessage();
         }
     }
+
+  /** 
+     * Generic model method for selecting everything that matches
+     * the input parameter from a model class
+     * that inhertis this abstract model
+     */
+    public static function findAllMatches($userId)
+    {
+        try {
+            $query = "SELECT * FROM " . static::TABLENAME . " WHERE user_id = $userId ORDER BY created DESC";
+            self::$db->query($query);
+            $results = self::$db->resultset();
+
+            if (!empty($results)) {
+                return $results;
+            } else {
+                return [];
+            }
+        } catch (PDOException $err) {
+            return $err->getMessage();
+        }
+    }
+    
 }
 
 Model::initialize();

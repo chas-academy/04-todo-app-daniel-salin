@@ -30,6 +30,9 @@ abstract class Controller
             if ($path === '/var/www/public/../src/Views/login.view.php') {
                 $partialHeadPath = "/../src/Views/partials/headLogin.php";
                 $partialFooterPath = "/../src/Views/partials/footerLogin.php";
+            } elseif ($path === '/var/www/public/../src/Views/user.view.php') {
+                $partialHeadPath = "/../src/Views/partials/userHead.php";
+                $partialFooterPath = "/../src/Views/partials/userFooter.php";
             } else {
                 $partialHeadPath = "/../src/Views/partials/head.php";
                 $partialFooterPath = "/../src/Views/partials/footer.php";

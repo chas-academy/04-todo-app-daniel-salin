@@ -12,7 +12,7 @@ class User extends Model
         self::$db->query($query);
         $results = self::$db->resultset();
         if(!empty($results)) {
-            return true;
+            return [$results, true];
         } else {
             return false;
         }
