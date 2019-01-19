@@ -30,6 +30,7 @@ class LoginController extends Controller
         if ($result[1]) {
             session_start();
             $_SESSION['userId'] = $result[0][0]['id'];
+            $_SESSION['username'] = $result[0][0]['username'];
             $userTodos = UserTodoItem::findAllMatches($_SESSION['userId']);
             $this->redirect('/usertodos/' . $_SESSION['userId']);
             
@@ -43,7 +44,8 @@ class LoginController extends Controller
         $result = User::register($_POST['username'], $_POST['password']);
         if ($result !== null) {
             session_start();
-            $_SESSION['userId'] = $result;
+            $_SESSION['userId'] = $result['id'];
+            $_SESSION['username'] = $result['username'];
             $userTodos = UserTodoItem::findAllMatches($_SESSION['userId']);
             $this->redirect('/usertodos/' . $_SESSION['userId']);
         } else {

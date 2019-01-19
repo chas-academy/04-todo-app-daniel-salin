@@ -24,10 +24,10 @@ class User extends Model
         self::$db->query($query);
         $result = self::$db->execute();
         if($result) {
-            $queryId = "SELECT id FROM " . static::TABLENAME . " WHERE username = '$username' AND password = '$password';";
+            $queryId = "SELECT * FROM " . static::TABLENAME . " WHERE username = '$username' AND password = '$password';";
             self::$db->query($queryId);
             $results = self::$db->resultset();
-            return $results[0]['id'];
+            return $results[0];
         }
         return null;
     }
