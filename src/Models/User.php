@@ -11,10 +11,24 @@ class User extends Model
         $query = "SELECT * FROM " . static::TABLENAME . " WHERE username = '$username' AND password = '$password';";
         self::$db->query($query);
         $results = self::$db->resultset();
-        if(!empty($results)) {
+        if (!empty($results)) {
             return [$results, true];
         } else {
             return false;
         }
+    }
+    
+    public static function register($username, $password)
+    {
+        $query = "INSERT INTO " . static::TABLENAME . " (username, password) VALUES ('$username', '$password');";
+        self::$db->query($query);
+        $result = self::$db->execute();
+        if($result) {
+            $queryId = "SELECT id FROM " . static::TABLENAME . " WHERE username = '$username' AND password = '$password';";
+            self::$db->query($queryId);
+            $results = self::$db->resultset();
+            return $results[0]['id'];
+        }
+        return null;
     }
 }

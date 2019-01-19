@@ -7,9 +7,14 @@ use Todo\UserTodoItem;
 
 class LoginController extends Controller
 {
-    public function display()
+    public function displayLogin()
     {
         return $this->view('login');
+    }
+
+    public function displayRegister()
+    {
+        return $this->view('register');
     }
 
     public function logout()
@@ -30,6 +35,19 @@ class LoginController extends Controller
             
         } else {
             $this->view('login');
+         }
+    }
+
+    public function register()
+    {
+        $result = User::register($_POST['username'], $_POST['password']);
+        if ($result !== null) {
+            session_start();
+            $_SESSION['userId'] = $result;
+            $userTodos = UserTodoItem::findAllMatches($_SESSION['userId']);
+            $this->redirect('/usertodos/' . $_SESSION['userId']);
+        } else {
+            echo "Registration failed";
          }
     }
 }

@@ -21,7 +21,7 @@
 
 </main>
 <div class="small-container">
-  <p><a href="display">Login</a> to create and save your own todo-lists!</p>
+  <p><a href="displayLogin">Login</a> or <a href="displayRegister">Register</a> to create and save your own todo-lists!</p>
 </div>
 
 <footer class="site-footer">

@@ -27,7 +27,8 @@ abstract class Controller
             ob_start();
             
             
-            if ($path === '/var/www/public/../src/Views/login.view.php') {
+            if ($path === '/var/www/public/../src/Views/login.view.php' || 
+            $path === '/var/www/public/../src/Views/register.view.php') {
                 $partialHeadPath = "/../src/Views/partials/headLogin.php";
                 $partialFooterPath = "/../src/Views/partials/footerLogin.php";
             } elseif ($path === '/var/www/public/../src/Views/user.view.php') {

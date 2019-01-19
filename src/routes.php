@@ -11,9 +11,11 @@ $router->post('todos/toggle-all', 'TodoController@toggle');
 $router->post('todos/clear-completed', 'TodoController@clear');
 
 //Login Routes
-$router->get('display', 'LoginController@display');
+$router->get('displayLogin', 'LoginController@displayLogin');
+$router->get('displayRegister', 'LoginController@displayRegister');
 $router->post('login', 'LoginController@login');
 $router->get('logout', 'LoginController@logout');
+$router->post('register', 'LoginController@register');
 $router->post('user', 'LoginController@user');
 
 // User todo routes
