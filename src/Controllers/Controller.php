@@ -18,20 +18,18 @@ abstract class Controller
 
     protected function view($view, $data = [])
     {
-
         $view = strtolower($view);
         $path = $_SERVER['DOCUMENT_ROOT'] . '/../src/Views/' . $view . '.view.php';
         $data = extract($data);
-
+        
         if (file_exists($path)) {
             ob_start();
-            
-            
-            if ($path === '/var/www/public/../src/Views/login.view.php' || 
-            $path === '/var/www/public/../src/Views/register.view.php') {
+        
+            if ($path === $_SERVER['DOCUMENT_ROOT'] . '/../src/Views/login.view.php' ||
+            $path === $_SERVER['DOCUMENT_ROOT'] . '/../src/Views/register.view.php') {
                 $partialHeadPath = "/../src/Views/partials/headLogin.php";
                 $partialFooterPath = "/../src/Views/partials/footerLogin.php";
-            } elseif ($path === '/var/www/public/../src/Views/user.view.php') {
+            } elseif ($path === $_SERVER['DOCUMENT_ROOT'] . '/../src/Views/user.view.php') {
                 $partialHeadPath = "/../src/Views/partials/userHead.php";
                 $partialFooterPath = "/../src/Views/partials/userFooter.php";
             } else {
@@ -57,7 +55,7 @@ abstract class Controller
         }
     }
 
-    public function redirect($url, $permanent = false) 
+    public function redirect($url, $permanent = false)
     {
         if ($permanent) {
             header('HTTP/1.1 301 Moved Permanently');

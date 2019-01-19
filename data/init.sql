@@ -1,42 +1,40 @@
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
 DROP DATABASE IF EXISTS `todo-app-db`;
-
-CREATE DATABASE `todo-app-db`;
-
+CREATE DATABASE `todo-app-db` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `todo-app-db`;
 
 DROP TABLE IF EXISTS `todos`;
-
 CREATE TABLE `todos` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL DEFAULT '',
   `created` datetime NOT NULL,
-  `completed` enum('false', 'true') NOT NULL DEFAULT 'false',
+  `completed` enum('false','true') NOT NULL DEFAULT 'false',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
-INSERT INTO `todos` (`title`, `created`, `completed`)
-VALUES
-  ('create a todo', now(), 'false'),
-  ('do laundry', now(), 'false'),
-  ('finish todo app', now(), 'false');
 
-USE 'todo-app-db';
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
-CREATE TABLE 'users' (
-'id' INT PRIMARY KEY AUTO_INCREMENT,
-'username' VARCHAR(255) NOT NULL,
-password VARCHAR(255) NOT NULL
-);
 
-INSERT INTO 'users' ('username', 'password') VALUES ('admin', 'password');
-
-CREATE TABLE 'user_todos' (
- 'id' int(11) unsigned NOT NULL AUTO_INCREMENT,
- 'title' varchar(100) NOT NULL DEFAULT '',
- 'user_id' int NOT NULL,
- 'created' datetime NOT NULL,
- 'completed' enum('false', 'true') NOT NULL DEFAULT 'false',
-  PRIMARY KEY ('id'),
-FOREIGN KEY ('user_id')
-    REFERENCES 'users'('id')
-);
+DROP TABLE IF EXISTS `user_todos`;
+CREATE TABLE `user_todos` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL DEFAULT '',
+  `user_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `completed` enum('false','true') NOT NULL DEFAULT 'false',
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `user_todos_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=latin1;
