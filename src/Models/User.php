@@ -8,24 +8,26 @@ class User extends Model
 
     public static function login($username, $password)
     {
-        $query = "SELECT * FROM " . static::TABLENAME . " WHERE username = '$username' AND password = '$password';";
+        $query = "SELECT * FROM " . static::TABLENAME . " WHERE username = '$username';";
         self::$db->query($query);
         $results = self::$db->resultset();
-        if (!empty($results)) {
-            return [$results, true];
+        $hashedPass = $results[0]['password'];
+        if (password_verify($password, $hashedPass)) {
+            return $results[0];
         } else {
-            return false;
+            return null;
         }
     }
     
     public static function register($username, $password)
     {
-        $query = "INSERT INTO " . static::TABLENAME . " (username, password) VALUES ('$username', '$password');";
+        $hashedPass = password_hash($password, PASSWORD_DEFAULT);
+        $query = "INSERT INTO " . static::TABLENAME . " (username, password) VALUES ('$username', '$hashedPass');";
         self::$db->query($query);
         $result = self::$db->execute();
-        if($result) {
-            $queryId = "SELECT * FROM " . static::TABLENAME . " WHERE username = '$username' AND password = '$password';";
-            self::$db->query($queryId);
+        if ($result) {
+            $query = "SELECT * FROM " . static::TABLENAME . " WHERE username = '$username' AND password = '$hashedPass';";
+            self::$db->query($query);
             $results = self::$db->resultset();
             return $results[0];
         }

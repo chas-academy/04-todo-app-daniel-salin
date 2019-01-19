@@ -27,16 +27,16 @@ class LoginController extends Controller
     public function login()
     {
         $result = User::login($_POST['username'], $_POST['password']);
-        if ($result[1]) {
+        if ($result !== null) {
             session_start();
-            $_SESSION['userId'] = $result[0][0]['id'];
-            $_SESSION['username'] = $result[0][0]['username'];
+            $_SESSION['userId'] = $result['id'];
+            $_SESSION['username'] = $result['username'];
             $userTodos = UserTodoItem::findAllMatches($_SESSION['userId']);
             $this->redirect('/usertodos/' . $_SESSION['userId']);
             
         } else {
             $this->view('login');
-         }
+        }
     }
 
     public function register()
