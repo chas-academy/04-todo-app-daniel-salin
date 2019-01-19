@@ -13,6 +13,7 @@ $router->post('todos/clear-completed', 'TodoController@clear');
 //Login Routes
 $router->get('display', 'LoginController@display');
 $router->post('login', 'LoginController@login');
+$router->get('logout', 'LoginController@logout');
 $router->post('user', 'LoginController@user');
 
 // User todo routes

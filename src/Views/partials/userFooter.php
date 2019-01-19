@@ -21,7 +21,7 @@
 
 </main>
 <div class="small-container">
-  <p><a href="display">Login</a> to create and save your own todo-lists!</p>
+  <p><a href="/logout">Logout</a></p>
 </div>
 
 <footer class="site-footer">

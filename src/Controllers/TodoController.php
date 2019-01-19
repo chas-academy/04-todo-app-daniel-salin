@@ -8,9 +8,6 @@ class TodoController extends Controller
 {
     public function get()
     {
-        // MOVE TO LOGOUT
-        session_start();
-        session_destroy();
         $todos = TodoItem::findAll();
         return $this->view('index', ['todos' => $todos]);
     }

@@ -12,6 +12,13 @@ class LoginController extends Controller
         return $this->view('login');
     }
 
+    public function logout()
+    {
+        session_start();
+        session_destroy();
+        $this->redirect('/');
+    }
+
     public function login()
     {
         $result = User::login($_POST['username'], $_POST['password']);
