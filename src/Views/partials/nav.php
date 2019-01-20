@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" role="banner">
     <h1>todos</h1>
     <form id="create-todo" method="post" action="todos">
       <input name="title" class="new-todo" placeholder="What needs to be done?" autofocus>

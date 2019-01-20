@@ -13,5 +13,5 @@
 
 <body>
 
-<main class="todoapp">
+<main class="todoapp" role="main">
   <?php include __DIR__ . '/nav.php'; ?>

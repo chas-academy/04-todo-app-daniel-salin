@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" role="contentinfo">
   <span class="todo-count"><?= count(array_filter($userTodos, function ($todo) {
     return $todo['completed'] === "false";
 })) ?>
@@ -24,7 +24,7 @@
   <p><a href="/logout">Logout</a></p>
 </div>
 
-<footer class="site-footer">
+<footer class="site-footer" role="contentinfo">
   <div class="small-container">
     <p class="text-center">Made by <a href="http://danielsalin.chas.academy">Daniel Salin</a></p>
   </div>

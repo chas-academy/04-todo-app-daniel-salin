@@ -4,7 +4,7 @@
   <p><a href="/">Back</a></p>
 </div>
 
-<footer class="site-footer">
+<footer class="site-footer" role="contentinfo">
     <div class="small-container">
         <p class="text-center">Made by <a href="http://danielsalin.chas.academy">Daniel Salin</a></p>
     </div>
