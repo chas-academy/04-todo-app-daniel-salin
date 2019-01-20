@@ -6,7 +6,7 @@ class User extends Model
 {
     const TABLENAME = 'users'; // This is used by the abstract model, don't touch
 
-    /** 
+    /**
      * Login user method
      * Check username and verify hashed pass. Return user information.
      */
@@ -26,7 +26,7 @@ class User extends Model
         }
     }
     
-    /** 
+    /**
      * Register user method
      * Check username, hash password and insert into database.
      */

@@ -25,7 +25,7 @@ abstract class Model
         return $oClass->getConstants();
     }
 
-    /** 
+    /**
      * Generic model method for selecting everything from a model class
      * that inhertis this abstract model
      */
@@ -46,7 +46,7 @@ abstract class Model
         }
     }
 
-    /** 
+    /**
      * Generic model method for selecting a specific item from a model class
      * that inhertis this abstract model
      */
@@ -69,11 +69,11 @@ abstract class Model
         }
     }
 
-  /** 
-     * Generic model method for selecting everything that matches
-     * the input parameter from a model class
-     * that inhertis this abstract model
-     */
+    /**
+       * Generic model method for selecting everything that matches
+       * the input parameter from a model class
+       * that inhertis this abstract model
+       */
     public static function findAllMatches($userId)
     {
         try {
@@ -90,7 +90,6 @@ abstract class Model
             return $err->getMessage();
         }
     }
-    
 }
 
 Model::initialize();

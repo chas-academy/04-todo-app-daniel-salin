@@ -66,7 +66,6 @@ class UserTodoItem extends Model
         } catch (PDOException $err) {
             return $err->getMessage();
         }
-        
     }
     
     public static function toggleTodos($completed, $userId)

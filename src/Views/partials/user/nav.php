@@ -1,5 +1,6 @@
 <header class="header" role="banner">
-    <h1><?= $_SESSION['username'] ?></h1>
+    <h1><?= $_SESSION['username'] ?>
+    </h1>
     <form id="create-todo" method="post" action="/usertodos/<?= $_SESSION['userId'] ?>/add">
         <input name="title" class="new-todo" placeholder="What needs to be done?" autofocus>
     </form>

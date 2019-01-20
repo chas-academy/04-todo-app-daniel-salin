@@ -27,11 +27,11 @@ abstract class Controller
         
             if ($path === $_SERVER['DOCUMENT_ROOT'] . '/../src/Views/login.view.php' ||
             $path === $_SERVER['DOCUMENT_ROOT'] . '/../src/Views/register.view.php') {
-                $partialHeadPath = "/../src/Views/partials/headLogin.php";
-                $partialFooterPath = "/../src/Views/partials/footerLogin.php";
+                $partialHeadPath = "/../src/Views/partials/login_register/head.php";
+                $partialFooterPath = "/../src/Views/partials/login_register/footer.php";
             } elseif ($path === $_SERVER['DOCUMENT_ROOT'] . '/../src/Views/user.view.php') {
-                $partialHeadPath = "/../src/Views/partials/userHead.php";
-                $partialFooterPath = "/../src/Views/partials/userFooter.php";
+                $partialHeadPath = "/../src/Views/partials/user/head.php";
+                $partialFooterPath = "/../src/Views/partials/user/footer.php";
             } else {
                 $partialHeadPath = "/../src/Views/partials/head.php";
                 $partialFooterPath = "/../src/Views/partials/footer.php";

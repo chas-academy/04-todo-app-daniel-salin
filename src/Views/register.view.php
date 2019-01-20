@@ -9,7 +9,6 @@
 </form>
 
 <?php
-if(isset($status)) {
+if (isset($status)) {
     echo '<div class="small-container" id="error">Username is already taken</div>';
 }
-?>

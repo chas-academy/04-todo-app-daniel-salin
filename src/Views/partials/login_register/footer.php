@@ -1,7 +1,7 @@
 </main>
 
 <div class="small-container">
-  <p><a href="/">Back</a></p>
+    <p><a href="/">Back</a></p>
 </div>
 
 <footer class="site-footer" role="contentinfo">

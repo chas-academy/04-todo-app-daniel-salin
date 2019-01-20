@@ -33,7 +33,6 @@ class LoginController extends Controller
             $_SESSION['username'] = $result['username'];
             $userTodos = UserTodoItem::findAllMatches($_SESSION['userId']);
             $this->redirect('/usertodos/' . $_SESSION['userId']);
-            
         } else {
             $this->view('login', ['status' => 'failure']);
         }
@@ -50,6 +49,6 @@ class LoginController extends Controller
             $this->redirect('/usertodos/' . $_SESSION['userId']);
         } else {
             $this->view('register', ['status' => 'failure']);
-         }
+        }
     }
 }
