@@ -27,7 +27,7 @@ class LoginController extends Controller
     public function login()
     {
         $result = User::login($_POST['username'], $_POST['password']);
-        if ($result !== null) {
+        if (!empty($result)) {
             session_start();
             $_SESSION['userId'] = $result['id'];
             $_SESSION['username'] = $result['username'];
@@ -35,7 +35,7 @@ class LoginController extends Controller
             $this->redirect('/usertodos/' . $_SESSION['userId']);
             
         } else {
-            $this->view('login');
+            $this->view('login', ['status' => 'failure']);
         }
     }
 
@@ -49,7 +49,7 @@ class LoginController extends Controller
             $userTodos = UserTodoItem::findAllMatches($_SESSION['userId']);
             $this->redirect('/usertodos/' . $_SESSION['userId']);
         } else {
-            echo "Registration failed";
+            $this->view('register', ['status' => 'failure']);
          }
     }
 }

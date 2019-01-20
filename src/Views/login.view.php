@@ -9,3 +9,9 @@
     <input type="text" name="password" placeholder="password">
     <button type=submit>Login</button>
 </form>
+
+<?php
+if(isset($status)) {
+    echo '<div class="small-container" id="error">Password or username is incorrect</div>';
+}
+?>

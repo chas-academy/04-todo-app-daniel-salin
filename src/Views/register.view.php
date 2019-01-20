@@ -7,3 +7,9 @@
     <input type="text" name="password" placeholder="password">
     <button type=submit>Submit</button>
 </form>
+
+<?php
+if(isset($status)) {
+    echo '<div class="small-container" id="error">Username is already taken</div>';
+}
+?>

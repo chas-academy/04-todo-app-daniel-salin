@@ -115,6 +115,11 @@ form {
   border-top: 1px solid #e6e6e6;
 }
 
+#error {
+  margin-top: 10px;
+  color: red;
+}
+
 .toggle-all {
   width: 1px;
   height: 1px;
