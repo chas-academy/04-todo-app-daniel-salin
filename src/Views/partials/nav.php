@@ -11,6 +11,6 @@
     return $todo['completed'] === "false";
 })) !== 0) ?  "true" : "false"; ?>
         onChange="this.form.submit()">
-        <label for="toggle-all">Mark all as complete</label>
+        <label for="toggle-all">Mark all tasks as complete</label>
     </form>
 </section>
